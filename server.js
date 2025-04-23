@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'views')));
 
 // Define o prefixo /api para as rotas
-app.use('/api', userRoutes);
+app.use('/api/tasks', userRoutes);
 
 // Rota para a página principal
 app.get('/', (req, res) => {

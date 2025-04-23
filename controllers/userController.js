@@ -23,6 +23,24 @@ exports.createTask = async (req, res) => {
   }
 };
 
+// Atualizar tarefa
+exports.updateTask = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const tarefaAtualizada= req.body;
+
+    if (!hora || !tarefa || !data) {
+      return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
+    }
+
+    await model.updateTask(id, tarefaAtualizada);
+    res.status(200).json({ message: 'Tarefa atualizada com sucesso.' });
+  } catch (err) {
+    console.error('Erro ao atualizar tarefa:', err);
+    res.status(500).json({ error: 'Erro ao atualizar tarefa' });
+  }
+};
+
 // Deletar tarefa
 exports.deleteTask = async (req, res) => {
   try {

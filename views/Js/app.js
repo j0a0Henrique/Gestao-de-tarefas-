@@ -5,8 +5,9 @@ app.controller('TarefasController', function($scope, $http) {
 
     $scope.novaTarefa = {};
     $scope.tarefas = [];
+    $scope.editando = false;
+    $scope.idEditando = null;
 
-    // Buscar tarefas
     const carregarTarefas = function() {
         $http.get(apiUrl)
             .then(function(response) {
@@ -17,7 +18,6 @@ app.controller('TarefasController', function($scope, $http) {
             });
     };
 
-    // Adicionar tarefa
     $scope.adicionarTarefa = function() {
         if (!$scope.novaTarefa.hora || !$scope.novaTarefa.descricao || !$scope.novaTarefa.data) {
             alert("Preencha todos os campos!");
@@ -26,7 +26,6 @@ app.controller('TarefasController', function($scope, $http) {
 
         let horaFormatada = "";
 
-        // Trata diferentes formatos de entrada
         if (typeof $scope.novaTarefa.hora === 'string') {
             horaFormatada = $scope.novaTarefa.hora.substring(0, 5);
         } else if ($scope.novaTarefa.hora instanceof Date) {
@@ -44,17 +43,42 @@ app.controller('TarefasController', function($scope, $http) {
             data: $scope.novaTarefa.data
         };
 
-        $http.post(apiUrl, tarefa)
-            .then(function(response) {
-                $scope.novaTarefa = {}; // Limpa os campos
-                carregarTarefas(); // Recarrega a lista
-            })
-            .catch(function(error) {
-                console.error('Erro ao adicionar tarefa:', error);
-            });
+        if ($scope.editando) {
+            // Atualização
+            $http.put(`${apiUrl}/${$scope.idEditando}`, tarefa)
+                .then(function(response) {
+                    $scope.novaTarefa = {};
+                    $scope.editando = false;
+                    $scope.idEditando = null;
+                    carregarTarefas();
+                })
+                .catch(function(error) {
+                    console.error('Erro ao atualizar tarefa:', error);
+                });
+        } else {
+            // Criação
+            $http.post(apiUrl, tarefa)
+                .then(function(response) {
+                    $scope.novaTarefa = {};
+                    carregarTarefas();
+                })
+                .catch(function(error) {
+                    console.error('Erro ao adicionar tarefa:', error);
+                });
+        }
     };
 
-    // Remover tarefa
+    $scope.editar = function(id) {
+        const tarefaSelecionada = $scope.tarefas.find(t => t.id === id);
+        if (tarefaSelecionada) {
+            $scope.novaTarefa.hora = tarefaSelecionada.hora;
+            $scope.novaTarefa.descricao = tarefaSelecionada.tarefa;
+            $scope.novaTarefa.data = tarefaSelecionada.data;
+            $scope.editando = true;
+            $scope.idEditando = id;
+        }
+    };
+
     $scope.removerTarefa = function(id) {
         $http.delete(`${apiUrl}/${id}`)
             .then(function(response) {
@@ -65,11 +89,5 @@ app.controller('TarefasController', function($scope, $http) {
             });
     };
 
-    // Concluir tarefa (opcional)
-    $scope.concluirTarefa = function(id) {
-        // A implementar se desejar
-    };
-
-    // Inicialização
     carregarTarefas();
 });

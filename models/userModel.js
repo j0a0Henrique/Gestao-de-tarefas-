@@ -1,4 +1,4 @@
-const db = require('./db');
+const db = require('../db');
 
 // Buscar todas as tarefas
 exports.getAllTasks = async () => {
@@ -14,6 +14,13 @@ exports.createTask = async (tarefa) => {
     [hora, descricao, data]
   );
 };
+
+exports.updateTask = async (id, tarefa) => {
+  const { hora, tarefa: descricao, data } = tarefa;
+  const query = 'UPDATE tarefas SET hora = $1, tarefa = $2, data = $3 WHERE id = $4';
+  const values = [hora, descricao, data, id];
+  await db.query(query, values);
+}
 
 // Remover tarefa por ID
 exports.deleteTask = async (id) => {

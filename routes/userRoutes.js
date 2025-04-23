@@ -4,6 +4,7 @@ const controller = require('../controllers/userController');
 
 router.get('/tasks', controller.getTasks);
 router.post('/tasks', controller.createTask);
+router.put('/:id', controller.updateTask);
 router.delete('/tasks/:id', controller.deleteTask);
 
 module.exports = router;
