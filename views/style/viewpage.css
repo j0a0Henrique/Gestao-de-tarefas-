@@ -1,0 +1,74 @@
+.header {
+    background-color: #011F26;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 90px;
+    display: flex;
+    align-items: center;
+}
+
+#icon img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+}
+
+.header .btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: transparent;
+    border: 1px solid #ccc;
+}
+
+.header .btn img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+#bt1, #bt2 {
+    border-radius: 20%;
+    padding: 0.3rem;
+}
+
+.container {
+    padding: 1rem;
+}
+
+.card {
+    background-color: #89D1D9;
+    border-radius: 0.75rem;
+    box-shadow: #0000;
+}
+
+#foot {
+    background-color: #011F26;
+    color: #ffffff;
+    font-size: 0.75rem;
+    padding: 0.8rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+main {
+    padding-top: 70px;   
+    padding-bottom: 70px;
+}
