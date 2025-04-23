@@ -1,4 +1,18 @@
-Ok, vamos recomeçar. Quando eu aperdar no botão de edição. vai aparecer 3 imputes(hora,tarefa,data) e um botão de concluido. e o botão de edição e as informaoes anteriores não vao aparcer ate eu clikar no botão de concluido. tudo certo?
+Pacotes usados-
 
-git config --global user.name "j0a0Henrique"
-git config --global user.email "joaorosamoto4@gmail.com"
+npm install swagger-ui-express swagger-jsdoc
+npm install express-rate-limit
+
+Executar-
+
+/iniciar servidor/
+
+node server.js 
+
+/acessar servidor por URl:/
+http://localhost:3000/
+
+/acessr rotas por swagger:/
+
+http://localhost:3000/api-docs/#/
+

@@ -10,7 +10,6 @@ const pool = new Pool({
   ssl: process.env.SSL === 'true' ? { rejectUnauthorized: false } : false
 });
 
-// Testar a conexão com o banco de dados
 pool.query('SELECT NOW()', (err, res) => {
   if (err) {
     console.error('Erro ao conectar ao banco de dados:', err);

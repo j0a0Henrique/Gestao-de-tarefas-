@@ -1,3 +1,8 @@
+main {
+    padding-top: 10%;
+
+}
+
 .header {
     background-color: #011F26;
     padding: 0px;
@@ -36,19 +41,31 @@
     object-fit: contain;
 }
 
-#bt1, #bt2 {
-    border-radius: 20%;
-    padding: 0.3rem;
-}
-
-.container {
-    padding: 1rem;
-}
-
-.card {
+#card-tarefas{
     background-color: #89D1D9;
-    border-radius: 0.75rem;
-    box-shadow: #0000;
+    box-shadow: black;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+#bt1, #bt2 {
+    border-radius: 50%;
+    padding: 0.3rem;
+    background-color: transparent;
+    border: none;
+}
+
+#btn-ev{
+    margin-bottom: 10px;
+}
+
+#data {
+    font-size: 0.9rem;
+    margin-left: auto;
 }
 
 #foot {
@@ -65,10 +82,4 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-
-main {
-    padding-top: 70px;   
-    padding-bottom: 70px;
 }

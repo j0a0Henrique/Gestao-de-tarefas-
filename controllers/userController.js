@@ -1,6 +1,6 @@
 const model = require('../models/userModel');
 
-// Listar tarefas
+// GET
 exports.getTasks = async (req, res) => {
   try {
     const tasks = await model.getAllTasks();
@@ -11,7 +11,7 @@ exports.getTasks = async (req, res) => {
   }
 };
 
-// Criar tarefa
+// POST
 exports.createTask = async (req, res) => {
   try {
     const tarefa = req.body;
@@ -23,17 +23,15 @@ exports.createTask = async (req, res) => {
   }
 };
 
-// Atualizar tarefa
+// PUT
 exports.updateTask = async (req, res) => {
   try {
     const id = req.params.id;
-    const tarefaAtualizada= req.body;
-
+    const { hora, tarefa, data } = req.body;
     if (!hora || !tarefa || !data) {
       return res.status(400).json({ error: 'Todos os campos são obrigatórios.' });
     }
-
-    await model.updateTask(id, tarefaAtualizada);
+    await model.updateTask(id, { hora, tarefa, data });
     res.status(200).json({ message: 'Tarefa atualizada com sucesso.' });
   } catch (err) {
     console.error('Erro ao atualizar tarefa:', err);
@@ -41,7 +39,7 @@ exports.updateTask = async (req, res) => {
   }
 };
 
-// Deletar tarefa
+// DELETE
 exports.deleteTask = async (req, res) => {
   try {
     const id = req.params.id;
