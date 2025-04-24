@@ -20,8 +20,7 @@ Projeto fullstack para gerenciamento de tarefas com backend em Node.js, frontend
 ### Clone o repositório
 
 bash
-git clone https://github.com/seuusuario/gestao-tarefas.git
-cd gestao-tarefas
+bash git clone https://github.com/j0a0Henrique/Gestao-de-tarefas- cd Gestao-de-tarefas-
 
 ### Instale os pacotes
 
