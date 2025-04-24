@@ -1,11 +1,11 @@
 
-# 🗂️ Gestão de Tarefas
+# Gestão de Tarefas
 
 Projeto fullstack para gerenciamento de tarefas com backend em Node.js, frontend com AngularJS, banco de dados PostgreSQL e documentação via Swagger.
 
 ---
 
-## 📦 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - **Frontend:** HTML5, CSS3, Bootstrap, AngularJS  
 - **Backend:** Node.js, Express  
@@ -15,16 +15,16 @@ Projeto fullstack para gerenciamento de tarefas com backend em Node.js, frontend
 
 ---
 
-## 🚀 Como rodar o projeto
+## Como rodar o projeto
 
-### 1. Clone o repositório
+### Clone o repositório
 
 ```bash
 git clone https://github.com/seuusuario/gestao-tarefas.git
 cd gestao-tarefas
 ```
 
-### 2. Instale os pacotes
+### Instale os pacotes
 
 ```bash
 npm install swagger-ui-express swagger-jsdoc
@@ -32,7 +32,7 @@ npm install express-rate-limit
 npm install
 ```
 
-### 3. Configure seu banco de dados
+### Configure seu banco de dados
 
 Crie um arquivo `.env` com os dados da sua conexão com o PostgreSQL:
 
@@ -47,7 +47,7 @@ SSL=true
 
 ---
 
-### 4. Execute o servidor
+### Execute o servidor
 
 ```bash
 node server.js
@@ -55,14 +55,14 @@ node server.js
 
 ---
 
-## 🌐 Acesse a aplicação
+## Acesse a aplicação
 
 - Página principal: [http://localhost:3000/](http://localhost:3000/)
 - Documentação da API (Swagger): [http://localhost:3000/api-docs/#/](http://localhost:3000/api-docs/#/)
 
 ---
 
-## ✅ Endpoints da API
+## Endpoints da API
 
 | Método | Rota             | Descrição                 |
 |--------|------------------|---------------------------|
@@ -73,19 +73,14 @@ node server.js
 
 ---
 
-## 🔐 Segurança
+## Segurança
 
 - **Rate Limiting** configurado para limitar 100 requisições por IP a cada 15 minutos com `express-rate-limit`.
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
-Feito com dedicação por **[Seu Nome]** 🧉  
-[LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/seuusuario)
+Feito por **João Henrique da Rosa Rodrigues**
 
 ---
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
