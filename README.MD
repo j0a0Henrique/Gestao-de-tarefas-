@@ -19,12 +19,9 @@ Projeto fullstack para gerenciamento de tarefas com backend em Node.js, frontend
 
 ### Clone o repositório
 
-bash
 bash git clone https://github.com/j0a0Henrique/Gestao-de-tarefas- cd Gestao-de-tarefas-
 
 ### Instale os pacotes
-
-bash
 
 npm install swagger-ui-express swagger-jsdoc
 npm install express-rate-limit
