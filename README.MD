@@ -1,18 +1,91 @@
-Pacotes usados-
 
+# 🗂️ Gestão de Tarefas
+
+Projeto fullstack para gerenciamento de tarefas com backend em Node.js, frontend com AngularJS, banco de dados PostgreSQL e documentação via Swagger.
+
+---
+
+## 📦 Tecnologias utilizadas
+
+- **Frontend:** HTML5, CSS3, Bootstrap, AngularJS  
+- **Backend:** Node.js, Express  
+- **Banco de Dados:** PostgreSQL (hospedado na [Neon.tech](https://neon.tech))  
+- **Documentação:** Swagger UI  
+- **Segurança:** Express Rate Limit  
+
+---
+
+## 🚀 Como rodar o projeto
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/seuusuario/gestao-tarefas.git
+cd gestao-tarefas
+```
+
+### 2. Instale os pacotes
+
+```bash
 npm install swagger-ui-express swagger-jsdoc
 npm install express-rate-limit
+npm install
+```
 
-Executar-
+### 3. Configure seu banco de dados
 
-/iniciar servidor/
+Crie um arquivo `.env` com os dados da sua conexão com o PostgreSQL:
 
-node server.js 
+```env
+PGUSER=seu_usuario
+PGHOST=seu_host
+PGDATABASE=seu_banco
+PGPASSWORD=sua_senha
+PGPORT=5432
+SSL=true
+```
 
-/acessar servidor por URl:/
-http://localhost:3000/
+---
 
-/acessr rotas por swagger:/
+### 4. Execute o servidor
 
-http://localhost:3000/api-docs/#/
+```bash
+node server.js
+```
 
+---
+
+## 🌐 Acesse a aplicação
+
+- Página principal: [http://localhost:3000/](http://localhost:3000/)
+- Documentação da API (Swagger): [http://localhost:3000/api-docs/#/](http://localhost:3000/api-docs/#/)
+
+---
+
+## ✅ Endpoints da API
+
+| Método | Rota             | Descrição                 |
+|--------|------------------|---------------------------|
+| GET    | `/api/tasks`     | Lista todas as tarefas    |
+| POST   | `/api/tasks`     | Cria uma nova tarefa      |
+| PUT    | `/api/tasks/:id` | Atualiza uma tarefa       |
+| DELETE | `/api/tasks/:id` | Deleta uma tarefa         |
+
+---
+
+## 🔐 Segurança
+
+- **Rate Limiting** configurado para limitar 100 requisições por IP a cada 15 minutos com `express-rate-limit`.
+
+---
+
+## 👨‍💻 Autor
+
+Feito com dedicação por **[Seu Nome]** 🧉  
+[LinkedIn](https://www.linkedin.com) | [GitHub](https://github.com/seuusuario)
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT.
