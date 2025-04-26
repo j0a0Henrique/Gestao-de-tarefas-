@@ -17,33 +17,20 @@ Projeto fullstack para gerenciamento de tarefas com backend em Node.js, frontend
 
 ## Como rodar o projeto
 
-### Clone o repositório
+### Clone do repositório
 
-```bash
-git clone https://github.com/seuusuario/gestao-tarefas.git
-cd gestao-tarefas
-```
+https://github.com/j0a0Henrique/Gestao-de-tarefas-.git cd Gestao-de-tarefas-
 
 ### Instale os pacotes
 
-```bash
 npm install swagger-ui-express swagger-jsdoc
 npm install express-rate-limit
 npm install
-```
+
 
 ### Configure seu banco de dados
 
-Crie um arquivo `.env` com os dados da sua conexão com o PostgreSQL:
-
-```env
-PGUSER=seu_usuario
-PGHOST=seu_host
-PGDATABASE=seu_banco
-PGPASSWORD=sua_senha
-PGPORT=5432
-SSL=true
-```
+Crie um arquivo `.env` com os dados da sua conexão com o PostgreSQL.
 
 ---
 
