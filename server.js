@@ -20,7 +20,7 @@ app.use(limiter);
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas da API
 app.use('/api', userRoutes);
