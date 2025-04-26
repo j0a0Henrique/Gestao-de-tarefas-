@@ -23,11 +23,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Rotas da API
+const userRoutes = require('./routes/userRoutes');
 app.use('/api', userRoutes);
 
 // Página principal
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'ViewPage.html'));
+  res.sendFile(path.join(__dirname, 'public', 'ViewPage.html'));
 });
 
 const setupSwagger = require('./swagger');
