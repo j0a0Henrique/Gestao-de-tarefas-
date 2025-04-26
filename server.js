@@ -16,7 +16,7 @@ const limiter = rateLimit({
   legacyHeaders: false,
 });
 
-app.use(limiter); // <- aplica o middleware aqui
+app.use(limiter); 
 
 app.use(cors());
 app.use(express.json());
@@ -30,7 +30,6 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'ViewPage.html'));
 });
 
-// Swagger (se estiver usando)
 const setupSwagger = require('./swagger');
 setupSwagger(app);
 
