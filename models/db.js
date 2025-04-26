@@ -7,7 +7,7 @@ const pool = new Pool({
   database: process.env.PGDATABASE,
   password: process.env.PGPASSWORD,
   port: process.env.PGPORT,
-  ssl: process.env.SSL === 'true' ? { rejectUnauthorized: false } : false
+  ssl: process.env.SSL === 'false' ? { rejectUnauthorized: false } : false
 });
 
 pool.query('SELECT NOW()', (err, res) => {
