@@ -8,16 +8,15 @@ app.controller('TarefasController', function($scope, $http) {
     $scope.editando = false;
     $scope.idEditando = null;
 
-    function carregarTarefas() {
+    const carregarTarefas = function() {
         $http.get(apiUrl)
-            .then(response => {
+            .then(function(response) {
                 $scope.tarefas = response.data;
             })
-            .catch(error => {
+            .catch(function(error) {
                 console.error('Erro ao carregar tarefas:', error);
-                alert('Erro ao carregar tarefas. Verifique sua conexão.');
             });
-    }
+    };
 
     $scope.adicionarTarefa = function() {
         if (!$scope.novaTarefa.hora || !$scope.novaTarefa.descricao || !$scope.novaTarefa.data) {
@@ -26,6 +25,7 @@ app.controller('TarefasController', function($scope, $http) {
         }
 
         let horaFormatada = "";
+
         if (typeof $scope.novaTarefa.hora === 'string') {
             horaFormatada = $scope.novaTarefa.hora.substring(0, 5);
         } else if ($scope.novaTarefa.hora instanceof Date) {
@@ -39,31 +39,31 @@ app.controller('TarefasController', function($scope, $http) {
 
         const tarefa = {
             hora: horaFormatada,
-            tarefa: $scope.novaTarefa.descricao.trim(),
+            tarefa: $scope.novaTarefa.descricao,
             data: $scope.novaTarefa.data
         };
 
         if ($scope.editando) {
-            // Atualizar tarefa
+            // Atualização
             $http.put(`${apiUrl}/${$scope.idEditando}`, tarefa)
-                .then(() => {
-                    limparFormulario();
+                .then(function(response) {
+                    $scope.novaTarefa = {};
+                    $scope.editando = false;
+                    $scope.idEditando = null;
                     carregarTarefas();
                 })
-                .catch(error => {
+                .catch(function(error) {
                     console.error('Erro ao atualizar tarefa:', error);
-                    alert('Erro ao atualizar tarefa.');
                 });
         } else {
-            // Criar nova tarefa
+            // Criação
             $http.post(apiUrl, tarefa)
-                .then(() => {
-                    limparFormulario();
+                .then(function(response) {
+                    $scope.novaTarefa = {};
                     carregarTarefas();
                 })
-                .catch(error => {
+                .catch(function(error) {
                     console.error('Erro ao adicionar tarefa:', error);
-                    alert('Erro ao adicionar tarefa.');
                 });
         }
     };
@@ -71,34 +71,23 @@ app.controller('TarefasController', function($scope, $http) {
     $scope.editar = function(id) {
         const tarefaSelecionada = $scope.tarefas.find(t => t.id === id);
         if (tarefaSelecionada) {
-            $scope.novaTarefa = {
-                hora: tarefaSelecionada.hora,
-                descricao: tarefaSelecionada.tarefa,
-                data: tarefaSelecionada.data
-            };
+            $scope.novaTarefa.hora = tarefaSelecionada.hora;
+            $scope.novaTarefa.descricao = tarefaSelecionada.tarefa;
+            $scope.novaTarefa.data = tarefaSelecionada.data;
             $scope.editando = true;
             $scope.idEditando = id;
         }
     };
 
     $scope.removerTarefa = function(id) {
-        if (confirm("Tem certeza que deseja excluir esta tarefa?")) {
-            $http.delete(`${apiUrl}/${id}`)
-                .then(() => {
-                    carregarTarefas();
-                })
-                .catch(error => {
-                    console.error('Erro ao remover tarefa:', error);
-                    alert('Erro ao remover tarefa.');
-                });
-        }
+        $http.delete(`${apiUrl}/${id}`)
+            .then(function(response) {
+                carregarTarefas();
+            })
+            .catch(function(error) {
+                console.error('Erro ao remover tarefa:', error);
+            });
     };
-
-    function limparFormulario() {
-        $scope.novaTarefa = {};
-        $scope.editando = false;
-        $scope.idEditando = null;
-    }
 
     carregarTarefas();
 });
