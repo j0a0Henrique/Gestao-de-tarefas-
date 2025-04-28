@@ -1,7 +1,8 @@
 const app = angular.module('AppTarefas', []);
 
 app.controller('TarefasController', function($scope, $http) {
-    const apiUrl = 'http://localhost:3000/api/tasks';
+    const apiUrl = 'https://meu-backend-na-internet.com/api/tasks';
+
 
     $scope.novaTarefa = {};
     $scope.tarefas = [];
