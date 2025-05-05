@@ -1,7 +1,8 @@
 const app = angular.module('AppTarefas', []);
 
 app.controller('TarefasController', function($scope, $http) {
-    const apiUrl = 'https://meu-backend-na-internet.com/api/tasks';
+    const apiUrl = 'https://gestao-de-tarefas--nu.vercel.app/api/tasks';
+
 
 
     $scope.novaTarefa = {};
